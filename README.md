@@ -21,19 +21,26 @@ Scan a QR code and retrieve product information.
 
 qrData: Base64 encoded QR code data captured from the device's camera.
 
-## Response
+ Response
+If the product ID is found in the database
+  If the product contains GMO ingredients:
+
 {
-  "productId": "123456",
-  "productName": "Product Name",
-  "description": "Product Description",
-  "price": 29.99
+  "message": "<Product Name> contains GMO ingredients.",
+  "moreDetails": "Link to GMO Information Center for more details"
 }
 
-
-productId: Unique identifier of the scanned product.
-productName: Name of the product.
-description: Description of the product.
-price: Price of the product.
+If the product does not contain GMO ingredients
+ {
+  "name": "<Product Name>",
+  "description": "<Product Description>",
+  "isGMO": false,
+  "ingredients": ["<Ingredient 1>", "<Ingredient 2>", ...],
+  "nutritionalFacts": {
+    "calories": <Calories>,
+    "fat": "<Fat Content>"
+  }
+}
 
 Error Responses
 
@@ -45,54 +52,13 @@ Example Error Response
 }
 
 
-# QR Code Scanner API
-
-This API provides functionality for scanning QR codes and fetching product information based on the scanned QR code.
-
-## Usage
-
-### Scan QR Code
-POST /scan
-
-
-Scan a QR code and retrieve product information.
-
-#### Request Body
-```json
-{
-  "qrData": "Base64EncodedQRCodeData"
-}
-qrData: Base64 encoded QR code data captured from the device's camera.
-Response
-json
-
-{
-  "productId": "123456",
-  "productName": "Product Name",
-  "description": "Product Description",
-  "price": 29.99
-}
-productId: Unique identifier of the scanned product.
-productName: Name of the product.
-description: Description of the product.
-price: Price of the product.
-
-Error Responses
-If an error occurs during the scanning process or while fetching product information, the API will return an appropriate error response with a corresponding status code.
-
-Example Error Response
-json
-
-{
-  "error": "Error message"
-}
 
 Getting Started
 
 Installation
 
 Clone the repository: 
-git clone https://github.com/solowiseCV/Eco-Agro
+git clone https://github.com/solowiseCV/AEco-Agro-Scanner-api-/
 
 Install dependencies:
 
@@ -105,8 +71,11 @@ Start the server:
  The server will be running at http://localhost:5000 by default.
 
  Dependencies
-express: ^4.17.1
-body-parser: ^1.19.0
-qrcode-reader: ^0.6.3
-axios: ^0.21.1
+
+  express: Fast, unopinionated, minimalist web framework for Node.js.
+  body-parser: Node.js body parsing middleware.
+  qrcode-reader: QR code reading library for Node.js.
+  fs: Node.js file system module.
+  base-64: Base64 encoding and decoding for Node.js.
+  axios: Promise based HTTP client for Node.js and the browser.
 
