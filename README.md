@@ -8,9 +8,9 @@ This Api documentation is sub documentation for api that provides functionality 
 
 
 ### Route
+POST route.post("/api/v1/scan")
 
-POST `route.post("/api/v1/scan")`
-GET `route.get("/api/v1/grains/grainId")`
+- GET `route.get("/api/v1/grains/grainId")`
 
 - Scan a QR code and retrieve product information.
 
