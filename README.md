@@ -9,18 +9,19 @@ This Api documentation is sub documentation for api that provides functionality 
 
 ### Route
 
+#### ENDPOINT: 
 POST /scan
 
-``route.get("/api/v1/scan/grainId")``
+`route.post("/api/v1/scan")`
 
-Scan a QR code and retrieve product information.
+- Scan a QR code and retrieve product information.
 
 #### Request Body
 
-json
+``json
 {
   "qrData": "Base64EncodedQRCodeData"
-} 
+} ``
 
 qrData: Base64 encoded QR code data captured from the device's camera.
 
@@ -28,10 +29,10 @@ qrData: Base64 encoded QR code data captured from the device's camera.
  - If the product ID is found in the database
   If the product contains GMO ingredients:
 
-{
+`{
   "message": "<Product Name> contains GMO ingredients.",
   "moreDetails": "Link to GMO Information Center for more details"
-}
+}`
 
 If the product does not contain GMO ingredients
  {
