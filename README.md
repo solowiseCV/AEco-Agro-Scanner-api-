@@ -9,23 +9,21 @@ This Api documentation is sub documentation for api that provides functionality 
 
 ### Route
 
-#### ENDPOINT: 
-POST /scan
-
-`route.post("/api/v1/scan")`
+POST `route.post("/api/v1/scan")`
+GET `route.get("/api/v1/grains/grainId")`
 
 - Scan a QR code and retrieve product information.
 
-#### Request Body
+### Request Body
 
-``json
+`json
 {
   "qrData": "Base64EncodedQRCodeData"
-} ``
+} `
 
 qrData: Base64 encoded QR code data captured from the device's camera.
 
- ## Response
+ ### Response
  - If the product ID is found in the database
   If the product contains GMO ingredients:
 
@@ -35,7 +33,7 @@ qrData: Base64 encoded QR code data captured from the device's camera.
 }`
 
 If the product does not contain GMO ingredients
- {
+ `{
   "name": "<Product Name>",
   "description": "<Product Description>",
   "isGMO": false,
@@ -44,16 +42,16 @@ If the product does not contain GMO ingredients
     "calories": <Calories>,
     "fat": "<Fat Content>"
   }
-}
+}`
 
 ## Error Responses
 
 If an error occurs during the scanning process or while fetching product information, the API will return an appropriate error response with a corresponding status code.
 
-Example Error Response
-{
+### Example Error Response
+`{
   "error": "Error message"
-}
+}`
 
 
 
@@ -70,11 +68,11 @@ cd qr-code-scanner-api
 npm install
 
 Start the server:
-  npm start
+  `npm start`
 
  The server will be running at http://localhost:5000 by default.
 
- Dependencies
+ ### Dependencies
 
   express: Fast, unopinionated, minimalist web framework for Node.js.
   body-parser: Node.js body parsing middleware.
