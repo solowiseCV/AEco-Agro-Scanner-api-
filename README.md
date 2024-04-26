@@ -2,27 +2,30 @@
 
 # QR Code Scanner API
 
-This API provides functionality for scanning QR codes and fetching product information based on the scanned QR code.
+## Introduction 
+This Api documentation is sub documentation for api that provides functionality for scanning QR codes and fetching product information based on the scanned QR code.
 
-## Usage
 
-### Scan QR Code
+
+### Route
 
 POST /scan
+
+``route.get("/api/v1/scan/grainId")``
 
 Scan a QR code and retrieve product information.
 
 #### Request Body
 
-```json
+json
 {
   "qrData": "Base64EncodedQRCodeData"
-} ```
+} 
 
 qrData: Base64 encoded QR code data captured from the device's camera.
 
- Response
-If the product ID is found in the database
+ ## Response
+ - If the product ID is found in the database
   If the product contains GMO ingredients:
 
 {
@@ -42,7 +45,7 @@ If the product does not contain GMO ingredients
   }
 }
 
-Error Responses
+## Error Responses
 
 If an error occurs during the scanning process or while fetching product information, the API will return an appropriate error response with a corresponding status code.
 
@@ -53,14 +56,14 @@ Example Error Response
 
 
 
-Getting Started
+## Getting Started
 
-Installation
+### Installation
 
-Clone the repository: 
-git clone https://github.com/solowiseCV/AEco-Agro-Scanner-api-/
+## Clone the repository: 
+- git clone https://github.com/solowiseCV/AEco-Agro-Scanner-api-/
 
-Install dependencies:
+### Install dependencies:
 
 cd qr-code-scanner-api
 npm install
